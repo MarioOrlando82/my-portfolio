@@ -67,7 +67,9 @@ function App() {
               <Education />
             </section>
           </main>
-          <StalkingTimer />
+          <section className="hidden-section">
+            <StalkingTimer />
+          </section>
           <Footer />
         </>
       )}

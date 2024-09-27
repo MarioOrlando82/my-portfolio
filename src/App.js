@@ -17,11 +17,13 @@ function App() {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add("show");
+          } else {
+            entry.target.classList.remove("show");
           }
         });
       },
       {
-        threshold: 0.4,
+        threshold: 0.1,
       }
     );
 

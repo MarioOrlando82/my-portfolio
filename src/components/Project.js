@@ -1,5 +1,5 @@
-import React, { useEffect, useRef } from "react";
-
+import React, { useState, useEffect } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 import cardImage1 from '../assets/PunyaLoker.png';
 import cardImage2 from '../assets/OceanWell.png';
@@ -11,7 +11,7 @@ import cardImage7 from '../assets/Warehouse.png';
 import cardImage8 from '../assets/Todolist.png';
 
 const Project = () => {
-    const carouselRef = useRef(null);
+    const [currentIndex, setCurrentIndex] = useState(0);
 
     const cards = [
         { id: 1, name: "PunyaLoker", description: "PunyaLoker simplifies job searching in Indonesia by providing an accessible, user-friendly platform with updated and relevant listings.", techStack: "HTML, CSS, JavaScript", image: cardImage1, link: "https://github.com/MarioOrlando82/punya-loker" },
@@ -25,44 +25,39 @@ const Project = () => {
     ];
 
     useEffect(() => {
-        const carousel = carouselRef.current;
-        let scrollAmount = 0;
-        const scrollSpeed = 0.5;
-        const scrollInterval = 20;
-
-        const autoScroll = () => {
-            scrollAmount += scrollSpeed;
-            if (scrollAmount >= carousel.scrollWidth / 2) {
-                scrollAmount = 0;
-                carousel.scrollLeft = 0;
-            } else {
-                carousel.scrollLeft = scrollAmount;
-            }
-        };
-
-        const interval = setInterval(autoScroll, scrollInterval);
+        const interval = setInterval(() => {
+            handleNext();
+        }, 4000);
 
         return () => clearInterval(interval);
     }, []);
 
-    const renderCardCard = (Card, index) => (
-        <div key={index} className="flex-shrink">
+    const handlePrev = () => {
+        setCurrentIndex((prevIndex) => (prevIndex - 1 + cards.length) % cards.length);
+    };
+
+    const handleNext = () => {
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % cards.length);
+    };
+
+    const renderCard = (card) => (
+        <div key={card.id} className="flex-shrink-0 transition-opacity duration-300 ease-in-out">
             <div className="card bg-base-100 shadow-xl h-96 w-64">
                 <figure>
                     <img
-                        src={Card.image}
-                        alt={Card.name}
+                        src={card.image}
+                        alt={card.name}
                         className="w-45 mx-auto"
                     />
                 </figure>
                 <div className="card-body p-3">
-                    <h2 className="card-title text-sm">{Card.name}</h2>
-                    <h6 className="text-xs text-gray-500 mb-2">{Card.techStack}</h6>
-                    <p className="text-xs">{Card.description}</p>
+                    <h2 className="card-title text-sm">{card.name}</h2>
+                    <h6 className="text-xs text-gray-500 mb-2">{card.techStack}</h6>
+                    <p className="text-xs">{card.description}</p>
                     <div className="card-actions justify-end">
                         <button
                             className="btn btn-primary btn-sm"
-                            onClick={() => window.open(Card.link, '_blank')}
+                            onClick={() => window.open(card.link, '_blank')}
                         >
                             See More
                         </button>
@@ -75,34 +70,28 @@ const Project = () => {
     return (
         <>
             <div className="divider text-xl font-bold">Projects</div>
-            <div className="overflow-hidden p-20">
-                <div
-                    ref={carouselRef}
-                    className="flex space-x-4 p-2 overflow-x-hidden"
-                    style={{
-                        width: "calc(100% + 70px)",
-                        marginLeft: "-30px",
-                        paddingLeft: "30px",
-                        paddingRight: "30px",
-                        marginBottom: "30px"
-                    }}
-                >
-                    {cards.map((Card, index) => renderCardCard(Card, index))}
-                    {cards.map((Card, index) => renderCardCard(Card, index))}
-                    {cards.map((Card, index) => renderCardCard(Card, index))}
-                    {cards.map((Card, index) => renderCardCard(Card, index))}
-                    {cards.map((Card, index) => renderCardCard(Card, index))}
-                    {cards.map((Card, index) => renderCardCard(Card, index))}
-                    {cards.map((Card, index) => renderCardCard(Card, index))}
-                    {cards.map((Card, index) => renderCardCard(Card, index))}
-                    {cards.map((Card, index) => renderCardCard(Card, index))}
-                    {cards.map((Card, index) => renderCardCard(Card, index))}
-                    {cards.map((Card, index) => renderCardCard(Card, index))}
-                    {cards.map((Card, index) => renderCardCard(Card, index))}
-                    {cards.map((Card, index) => renderCardCard(Card, index))}
-                    {cards.map((Card, index) => renderCardCard(Card, index))}
-                    {cards.map((Card, index) => renderCardCard(Card, index))}
-                    {cards.map((Card, index) => renderCardCard(Card, index))}
+            <div className="relative px-16 py-8">
+                <div className="flex justify-center items-center space-x-4">
+                    <div className="hidden md:grid md:grid-cols-4 gap-6">
+                        {[0, 1, 2, 3].map((offset) =>
+                            renderCard(cards[(currentIndex + offset) % cards.length])
+                        )}
+                    </div>
+                    <div className="md:hidden flex justify-center w-full">
+                        {renderCard(cards[currentIndex])}
+                    </div>
+                    <button
+                        className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-2 shadow-md z-10 border-2 border-[var(--icon-border-color)] bg-[var(--icon-border-color)] fill-[var(--icon-color)]"
+                        onClick={handlePrev}
+                    >
+                        <ChevronLeft size={24} className="text-[var(--icon-border-color)]" />
+                    </button>
+                    <button
+                        className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-2 shadow-md z-10 border-2 border-[var(--icon-border-color)] bg-[var(--icon-border-color)]"
+                        onClick={handleNext}
+                    >
+                        <ChevronRight size={24} className="text-[var(--icon-border-color)]" />
+                    </button>
                 </div>
             </div>
         </>

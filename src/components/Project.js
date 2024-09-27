@@ -30,7 +30,7 @@ const Project = () => {
         }, 4000);
 
         return () => clearInterval(interval);
-    }, []);
+    });
 
     const handlePrev = () => {
         setCurrentIndex((prevIndex) => (prevIndex - 1 + cards.length) % cards.length);

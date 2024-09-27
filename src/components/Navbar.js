@@ -16,8 +16,8 @@ const Navbar = () => {
 
     const menuItems = [
         { to: "about", label: "About Me" },
-        { to: "experiences", label: "Experiences" },
         { to: "projects", label: "Projects" },
+        { to: "experiences", label: "Experiences" },
         { to: "skills", label: "Skills" },
         { to: "educations", label: "Educations" }
     ];

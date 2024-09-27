@@ -54,13 +54,13 @@ function App() {
             <section id="about" className="pt-16 hidden-section">
               <Hero />
             </section>
-            <section id="experiences" className="pt-28 hidden-section">
-              <Experience />
-            </section>
             <section id="projects" className="pt-28 hidden-section">
               <Project />
             </section>
-            <section id="skills" className="pt-20 hidden-section">
+            <section id="experiences" className="pt-28 hidden-section">
+              <Experience />
+            </section>
+            <section id="skills" className="pt-28 hidden-section">
               <Skill />
             </section>
             <section id="educations" className="pt-28 hidden-section">

@@ -23,3 +23,18 @@
 .avatar {
   animation: circularOrbit 12s linear infinite;
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
+.hidden-section {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+}
+
+.show {
+  opacity: 1;
+  transform: translateY(0);
+}

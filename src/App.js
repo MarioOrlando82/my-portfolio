@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Footer from "./components/Footer";
@@ -9,23 +9,50 @@ import Education from "./components/Education";
 import Project from "./components/Project";
 
 function App() {
+  useEffect(() => {
+    const sections = document.querySelectorAll("section");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+          }
+        });
+      },
+      {
+        threshold: 0.4,
+      }
+    );
+
+    sections.forEach((section) => {
+      observer.observe(section);
+    });
+
+    return () => {
+      sections.forEach((section) => {
+        observer.unobserve(section);
+      });
+    };
+  }, []);
+
   return (
     <div className="min-h-screen flex flex-col bg-base-200">
       <Navbar />
       <main className="flex-grow">
-        <section id="about" className="py-16">
+        <section id="about" className="py-16 hidden-section">
           <Hero />
         </section>
-        <section id="experiences" className="py-16">
+        <section id="experiences" className="py-16 hidden-section">
           <Experience />
         </section>
-        <section id="projects" className="py-16">
+        <section id="projects" className="py-16 hidden-section">
           <Project />
         </section>
-        <section id="skills" className="py-16">
+        <section id="skills" className="py-16 hidden-section">
           <Skill />
         </section>
-        <section id="educations" className="py-16">
+        <section id="educations" className="py-16 hidden-section">
           <Education />
         </section>
       </main>

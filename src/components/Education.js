@@ -3,7 +3,7 @@ import React from "react";
 const Education = () => {
     return (
         <>
-            <div className="divider text-lg font-bold text-left mb-5">Education</div>
+            <div className="divider text-lg font-bold text-left mb-5">Educations</div>
             <div className="flex justify-center items-center">
                 <div className="mockup-browser bg-base-100 border mx-5 md:mx-20 w-full lg:w-full h-auto">
                     <div className="mockup-browser-toolbar">

@@ -42,19 +42,19 @@ function App() {
     <div className="min-h-screen flex flex-col bg-base-200">
       <Navbar />
       <main className="flex-grow">
-        <section id="about" className="py-16 hidden-section">
+        <section id="about" className="pt-16 hidden-section">
           <Hero />
         </section>
-        <section id="experiences" className="py-16 hidden-section">
+        <section id="experiences" className="pt-28 hidden-section">
           <Experience />
         </section>
-        <section id="projects" className="py-16 hidden-section">
+        <section id="projects" className="pt-28 hidden-section">
           <Project />
         </section>
-        <section id="skills" className="py-16 hidden-section">
+        <section id="skills" className="pt-20 hidden-section">
           <Skill />
         </section>
-        <section id="educations" className="py-16 hidden-section">
+        <section id="educations" className="pt-28 hidden-section">
           <Education />
         </section>
       </main>

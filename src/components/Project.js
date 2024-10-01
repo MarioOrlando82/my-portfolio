@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 import cardImage1 from '../assets/PunyaLoker.png';
@@ -12,6 +12,8 @@ import cardImage8 from '../assets/Todolist.png';
 
 const Project = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
+    const [isTransitioning, setIsTransitioning] = useState(false);
+    const [newCardIndex, setNewCardIndex] = useState(null);
 
     const cards = [
         { id: 1, name: "PunyaLoker", description: "PunyaLoker simplifies job searching in Indonesia by providing an accessible, user-friendly platform with updated and relevant listings.", techStack: "HTML, CSS, JavaScript", image: cardImage1, link: "https://github.com/MarioOrlando82/punya-loker" },
@@ -24,48 +26,69 @@ const Project = () => {
         { id: 8, name: "Todolist", description: "Intuitive to-do list app that helps users organize tasks, prioritize effectively, and enhance productivity through collaboration.", techStack: "Flutter", image: cardImage8, link: "https://github.com/MarioOrlando82/simple-to-do-list-app" },
     ];
 
-    useEffect(() => {
-        const interval = setInterval(() => {
-            handleNext();
-        }, 4000);
-
-        return () => clearInterval(interval);
-    });
-
     const handlePrev = () => {
-        setCurrentIndex((prevIndex) => (prevIndex - 1 + cards.length) % cards.length);
+        if (!isTransitioning) {
+            setIsTransitioning(true);
+            setCurrentIndex((prevIndex) => {
+                const newIndex = (prevIndex - 1 + cards.length) % cards.length;
+                setNewCardIndex(newIndex);
+                return newIndex;
+            });
+            setTimeout(() => {
+                setIsTransitioning(false);
+                setNewCardIndex(null);
+            }, 100);
+        }
     };
 
     const handleNext = () => {
-        setCurrentIndex((prevIndex) => (prevIndex + 1) % cards.length);
+        if (!isTransitioning) {
+            setIsTransitioning(true);
+            setCurrentIndex((prevIndex) => {
+                const newIndex = (prevIndex + 1) % cards.length;
+                setNewCardIndex((prevIndex + 4) % cards.length);
+                return newIndex;
+            });
+            setTimeout(() => {
+                setIsTransitioning(false);
+                setNewCardIndex(null);
+            }, 100);
+        }
     };
 
-    const renderCard = (card) => (
-        <div key={card.id} className="flex-shrink-0 transition-opacity duration-300 ease-in-out">
-            <div className="card bg-base-100 shadow-xl h-96 w-64">
-                <figure>
-                    <img
-                        src={card.image}
-                        alt={card.name}
-                        className="w-45 mx-auto"
-                    />
-                </figure>
-                <div className="card-body p-3">
-                    <h2 className="card-title text-sm">{card.name}</h2>
-                    <h6 className="text-xs text-gray-500 mb-2">{card.techStack}</h6>
-                    <p className="text-xs">{card.description}</p>
-                    <div className="card-actions justify-end">
-                        <button
-                            className="btn btn-primary btn-sm"
-                            onClick={() => window.open(card.link, '_blank')}
-                        >
-                            See More
-                        </button>
+    const renderCard = (card, index) => {
+        const isNewCard = newCardIndex === index;
+        return (
+            <div
+                key={card.id}
+                className={`flex-shrink-0 transition-all duration-300 ease-in-out ${isNewCard && isTransitioning ? 'opacity-0 transform scale-95' : 'opacity-100 transform scale-100'
+                    }`}
+            >
+                <div className="card bg-base-100 shadow-xl h-96 w-64">
+                    <figure>
+                        <img
+                            src={card.image}
+                            alt={card.name}
+                            className="w-45 mx-auto"
+                        />
+                    </figure>
+                    <div className="card-body p-3">
+                        <h2 className="card-title text-sm">{card.name}</h2>
+                        <h6 className="text-xs text-gray-500 mb-2">{card.techStack}</h6>
+                        <p className="text-xs">{card.description}</p>
+                        <div className="card-actions justify-end">
+                            <button
+                                className="btn btn-primary btn-sm"
+                                onClick={() => window.open(card.link, '_blank')}
+                            >
+                                See More
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    );
+        );
+    };
 
     return (
         <>
@@ -74,22 +97,24 @@ const Project = () => {
                 <button
                     className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-2 shadow-md z-10 border-2 border-[var(--icon-border-color)] bg-[var(--icon-border-color)] fill-[var(--icon-color)]"
                     onClick={handlePrev}
+                    disabled={isTransitioning}
                 >
                     <ChevronLeft size={24} className="text-[var(--icon-border-color)]" />
                 </button>
-                <div className="flex justify-center items-center space-x-4">
+                <div className="flex justify-center items-center">
                     <div className="hidden md:grid md:grid-cols-4 gap-6">
                         {[0, 1, 2, 3].map((offset) =>
-                            renderCard(cards[(currentIndex + offset) % cards.length])
+                            renderCard(cards[(currentIndex + offset) % cards.length], (currentIndex + offset) % cards.length)
                         )}
                     </div>
                     <div className="md:hidden flex justify-center w-full">
-                        {renderCard(cards[currentIndex])}
+                        {renderCard(cards[currentIndex], currentIndex)}
                     </div>
                 </div>
                 <button
                     className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-2 shadow-md z-10 border-2 border-[var(--icon-border-color)] bg-[var(--icon-border-color)]"
                     onClick={handleNext}
+                    disabled={isTransitioning}
                 >
                     <ChevronRight size={24} className="text-[var(--icon-border-color)]" />
                 </button>

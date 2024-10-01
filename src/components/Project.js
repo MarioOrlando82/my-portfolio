@@ -70,7 +70,13 @@ const Project = () => {
     return (
         <>
             <div className="divider text-xl font-bold">Projects</div>
-            <div className="relative px-16 py-8">
+            <div className="relative flex justify-center items-center px-16 py-8">
+                <button
+                    className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-2 shadow-md z-10 border-2 border-[var(--icon-border-color)] bg-[var(--icon-border-color)] fill-[var(--icon-color)]"
+                    onClick={handlePrev}
+                >
+                    <ChevronLeft size={24} className="text-[var(--icon-border-color)]" />
+                </button>
                 <div className="flex justify-center items-center space-x-4">
                     <div className="hidden md:grid md:grid-cols-4 gap-6">
                         {[0, 1, 2, 3].map((offset) =>
@@ -80,19 +86,13 @@ const Project = () => {
                     <div className="md:hidden flex justify-center w-full">
                         {renderCard(cards[currentIndex])}
                     </div>
-                    <button
-                        className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-2 shadow-md z-10 border-2 border-[var(--icon-border-color)] bg-[var(--icon-border-color)] fill-[var(--icon-color)]"
-                        onClick={handlePrev}
-                    >
-                        <ChevronLeft size={24} className="text-[var(--icon-border-color)]" />
-                    </button>
-                    <button
-                        className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-2 shadow-md z-10 border-2 border-[var(--icon-border-color)] bg-[var(--icon-border-color)]"
-                        onClick={handleNext}
-                    >
-                        <ChevronRight size={24} className="text-[var(--icon-border-color)]" />
-                    </button>
                 </div>
+                <button
+                    className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-2 shadow-md z-10 border-2 border-[var(--icon-border-color)] bg-[var(--icon-border-color)]"
+                    onClick={handleNext}
+                >
+                    <ChevronRight size={24} className="text-[var(--icon-border-color)]" />
+                </button>
             </div>
         </>
     );

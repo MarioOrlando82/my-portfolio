@@ -107,7 +107,7 @@ const Experience = () => {
                                 <li>Contributed to the subdivision/DPI work program.</li>
                                 <li>Guided BNCC activists as a mentor.</li>
                                 <li>Participated in various training sessions.</li>
-                                <li>Worked in the Event Division and Sponsorship team.</li>
+                                <li>Worked in the Event Division, Sponsorship Divison, and Public & Registration Division.</li>
                             </ul>
                         </div>
                         <hr />

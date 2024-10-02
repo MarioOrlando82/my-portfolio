@@ -2,11 +2,13 @@ import React from "react";
 import Typewriter from 'typewriter-effect';
 import SocialIcons from "./SocialIcons";
 import Profile from '../assets/Profile.png';
+import Meteors from "./Meteors";
+import ShimmerButton from "./ShimmerButton";
 
 const Hero = () => {
     return (
-        <div className="hero bg-base-200 min-h-screen flex flex-col justify-center items-center lg:flex-row lg:justify-between pl-6 pr-6 lg:pl-20 lg:pr-20">
-            <div className="flex flex-col items-center justify-center lg:flex-row lg:justify-between w-full">
+        <div className="hero bg-base-200 min-h-screen flex flex-col justify-center items-center lg:flex-row lg:justify-between pl-6 pr-6 lg:pl-20 lg:pr-20 relative overflow-hidden">
+            <div className="flex flex-col items-center justify-center lg:flex-row lg:justify-between w-full z-10">
                 <div className="avatar online mb-4 lg:mb-0 lg:mr-6">
                     <div className="w-32 h-32 lg:w-40 lg:h-40 rounded-full border-2 border-[var(--icon-border-color)]">
                         <img
@@ -34,13 +36,14 @@ const Hero = () => {
                         </p>
                     </div>
                     <a href="https://drive.google.com/file/d/1Y0-z_g_jHn09Z_uccNcpTf6cm_RLijt4/view?usp=sharing" target="_blank" rel="noopener noreferrer">
-                        <button className="btn btn-neutral text-sm lg:text-base">
+                        <ShimmerButton className="text-sm lg:text-base ">
                             See My CV
-                        </button>
+                        </ShimmerButton>
                     </a>
                 </div>
             </div>
             <SocialIcons />
+            <Meteors number={40} />
         </div>
     );
 };

@@ -9,6 +9,9 @@ import cardImage5 from '../assets/Medicare.png';
 import cardImage6 from '../assets/Calculator.png';
 import cardImage7 from '../assets/Warehouse.png';
 import cardImage8 from '../assets/Todolist.png';
+import cardImage9 from '../assets/UnderDevelopment.png';
+import cardImage10 from '../assets/UnderDevelopment.png';
+import cardImage11 from '../assets/UnderDevelopment.png';
 
 const Project = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -24,6 +27,9 @@ const Project = () => {
         { id: 6, name: "Calculator", description: "Replicates the iPhone calculator, offering an intuitive interface for basic and advanced calculations, enhancing accessibility for all users.", techStack: "TypeScript", image: cardImage6, link: "https://github.com/MarioOrlando82/simple-calculator" },
         { id: 7, name: "Warehouse", description: "Warehouse management system that optimizes inventory control, enhances productivity, and streamlines operations with real-time tracking features.", techStack: "ASP .NET", image: cardImage7, link: "https://github.com/MarioOrlando82/warehouse" },
         { id: 8, name: "Todolist", description: "Intuitive to-do list app that helps users organize tasks, prioritize effectively, and enhance productivity through collaboration.", techStack: "Flutter", image: cardImage8, link: "https://github.com/MarioOrlando82/simple-to-do-list-app" },
+        { id: 9, name: "SunibMakan", description: "SunibMakan is a food review website designed to help users explore, rate, and discover the best dining options around BINUS University.", techStack: "Typescript, Firebase", image: cardImage9, link: "https://github.com/MarioOrlando82/sunibmakan" },
+        { id: 10, name: "Bukulapak", description: "Bukulapak is an e-book marketplace website that helps users explore, purchase, and organize their digital reading collections.", techStack: "Laravel", image: cardImage10, link: "https://github.com/MarioOrlando82/bukulapak" },
+        { id: 11, name: "LaporAja", description: "LaporAja is a platform that helps users stay informed about criminal activities and unsafe areas in Indonesia.", techStack: "HTML, CSS, JavaScript", image: cardImage11, link: "https://github.com/MarioOrlando82/laporaja" },
     ];
 
     const handlePrev = () => {

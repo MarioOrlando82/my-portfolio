@@ -36,9 +36,11 @@ const Hero = () => {
                         </p>
                     </div>
                     <a href="https://drive.google.com/file/d/1Y0-z_g_jHn09Z_uccNcpTf6cm_RLijt4/view?usp=sharing" target="_blank" rel="noopener noreferrer">
-                        <ShimmerButton className="text-sm lg:text-base ">
+                        <ShimmerButton className="text-sm lg:text-base block sm:inline-block sm:mx-0 mx-auto">
                             See My CV
                         </ShimmerButton>
+
+
                     </a>
                 </div>
             </div>

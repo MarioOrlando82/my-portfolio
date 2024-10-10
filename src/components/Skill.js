@@ -30,7 +30,7 @@ const Skill = () => {
                         Mario Orlando
                         <time className="text-xs opacity-50 ml-1">12:46</time>
                     </div>
-                    <div className="chat-bubble">C, HTML, CSS, JavaScript, Laravel, PHP, Java, Python, SQL, Bootstrap, React, Tableau, SSIS, C#, ASP .NET, TypeScript, Flutter, Dart, Tailwind.</div>
+                    <div className="chat-bubble">C, HTML, CSS, JavaScript, Laravel, PHP, Java, Python, SQL, Bootstrap, React, Tableau, SSIS, C#, ASP .NET, TypeScript, Flutter, Dart, Tailwind, Redis, Firebase.</div>
                     <div className="chat-footer opacity-50">Seen at 12:46</div>
                 </div>
                 <div className="chat chat-start">

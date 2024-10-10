@@ -49,8 +49,9 @@ const Experience = () => {
                             <time className="font-mono italic text-sm md:text-base">Mar 2024 - Feb 2025</time>
                             <div className="text-lg font-black md:text-xl">Associate Software Engineer - Bina Nusantara IT Division</div>
                             <ul className="list-disc ml-5 md:text-base">
-                                <li>Developed an internal knowledge management portal using Flutter and ASP .NET, designed for use by over 300 employees.</li>
-                                <li>Implemented Redis Sentinel for the BINUS API Management project with ASP .NET, involving research, coding, deployment, and load testing.</li>
+                                <li>Developed an internal knowledge management portal using Flutter and ASP.NET, designed for use by over 300 employees. In the future, this portal will be used by all internal members of Bina Nusantara University as documentation of all projects in BINUS.</li>
+                                <li>Researched and implemented Redis Sentinel, enhancing system reliability and increasing concurrent user capacity to 20.000 through coding optimization and load testing.</li>
+                                <li>Optimized scalability and performance for BINUS API Management using ASP.NET, improving system reliability under high-traffic conditions.</li>
                             </ul>
                         </div>
                         <hr />
@@ -75,11 +76,9 @@ const Experience = () => {
                             <time className="font-mono italic text-sm md:text-base">Oct 2023 - Nov 2024</time>
                             <div className="text-lg font-black md:text-xl">Creative Director - Filemagz</div>
                             <ul className="list-disc ml-5 md:text-base">
-                                <li>Standardized all content for FILE's social media and website.</li>
-                                <li>Conducted quality control on 6 content concepts weekly.</li>
-                                <li>Created 35 Instagram posts and 2 articles for the website to date.</li>
-                                <li>Analyzed current trends and audience movement.</li>
-                                <li>Created analytics reports for social media and the FILE website.</li>
+                                <li>Standardized content creation and publication across FILE’s social media platforms.</li>
+                                <li>Managed quality control for six weekly content pieces, maintaining brand consistency.</li>
+                                <li>Managed quality control for six weekly content pieces, maintaining brand consistency.</li>
                             </ul>
                         </div>
                         <hr />

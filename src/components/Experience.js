@@ -52,6 +52,7 @@ const Experience = () => {
                                 <li>Developed an internal knowledge management portal using Flutter and ASP.NET, designed for use by over 300 employees. In the future, this portal will be used by all internal members of Bina Nusantara University as documentation of all projects in BINUS.</li>
                                 <li>Researched and implemented Redis Sentinel, enhancing system reliability and increasing concurrent user capacity to 20.000 through coding optimization and load testing.</li>
                                 <li>Optimized scalability and performance for BINUS API Management using ASP.NET, improving system reliability under high-traffic conditions.</li>
+                                <li>Utilized the Scrum framework and implemented Git branching strategies to efficiently manage code changes.</li>
                             </ul>
                         </div>
                         <hr />

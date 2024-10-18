@@ -35,7 +35,7 @@ const Hero = () => {
                             A <b>Computer Science Student</b> specializing in <b>Software Engineering</b> at Bina Nusantara University, dedicated to crafting <b>innovative and creative</b> solutions that make a difference. As a <b>movie enthusiast</b>, I enjoy exploring diverse narratives and genres, appreciating storytelling from various perspectives. I dream of traveling the world to continue my <b>journey of discovery</b>.
                         </p>
                     </div>
-                    <a href="https://drive.google.com/file/d/1ci4Hd_JRP-X-Bxzl3apWKpoD81RAbfbM/view?usp=drive_link" target="_blank" rel="noopener noreferrer">
+                    <a href="https://drive.google.com/file/d/1oGmkg7VI5j4GzfhHbj2jdGzGA5ZQl-v_/view?usp=sharing" target="_blank" rel="noopener noreferrer">
                         <ShimmerButton className="text-sm lg:text-base block sm:inline-block sm:mx-0 mx-auto">
                             See My CV
                         </ShimmerButton>

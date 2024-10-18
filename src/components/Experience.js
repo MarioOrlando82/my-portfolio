@@ -46,7 +46,7 @@ const Experience = () => {
                             </svg>
                         </div>
                         <div className="timeline-start mb-5 md:mb-10 md:text-start">
-                            <time className="font-mono italic text-sm md:text-base">Mar 2024 - Feb 2025</time>
+                            <time className="font-mono italic text-sm md:text-base">Mar 2024 - Present</time>
                             <div className="text-lg font-black md:text-xl">Associate Software Engineer - Bina Nusantara IT Division</div>
                             <ul className="list-disc ml-5 md:text-base">
                                 <li>Developed an internal knowledge management portal using Flutter and ASP.NET, designed for use by over 300 employees. In the future, this portal will be used by all internal members of Bina Nusantara University as documentation of all projects in BINUS.</li>
